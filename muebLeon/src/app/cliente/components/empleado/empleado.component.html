@@ -1,0 +1,79 @@
+<app-navbar1></app-navbar1>
+
+<section id="empleados-list" class="container">
+  <h1>Lista de Empleados</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th>Contraseña</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados">
+          <td>{{ empleado.idEmpleado }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.nombreUsuario }}</td>
+          <td>{{ empleado.contrasenia }}</td>
+          <td>{{ empleado.rol }}</td>
+          <td>
+            <button (click)="editEmpleado(empleado)">Editar</button>
+            <button (click)="deleteEmpleado(empleado.idEmpleado)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="add-button" (click)="openCreateForm()">Agregar Empleado</button>
+</section>
+
+<section id="empleadoForm" *ngIf="isFormVisible" class="card">
+  <h1>{{ isEditing ? 'Editar Empleado' : 'Agregar Empleado' }}</h1>
+  <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" formControlName="nombre" type="text" required>
+      <div *ngIf="empleadoForm.get('nombre')?.invalid && empleadoForm.get('nombre')?.touched">
+        Nombre es requerido.
+      </div>
+    </div>
+
+    <div>
+      <label for="nombreUsuario">Usuario:</label>
+      <input id="nombreUsuario" formControlName="nombreUsuario" type="text" required>
+      <div *ngIf="empleadoForm.get('nombreUsuario')?.invalid && empleadoForm.get('nombreUsuario')?.touched">
+        Usuario es requerido.
+      </div>
+    </div>
+
+    <div>
+      <label for="contrasenia">Contraseña:</label>
+      <input id="contrasenia" formControlName="contrasenia" type="text" required>
+      <div *ngIf="empleadoForm.get('contrasenia')?.invalid && empleadoForm.get('contrasenia')?.touched">
+        Contraseña es requerida.
+      </div>
+    </div>
+
+    <div>
+      <label for="rol">Rol:</label>
+      <select id="rol" formControlName="rol" required>
+        <option value="admin">admin</option>
+        <option value="empleado">empleado</option>
+        <option value="cliente">cliente</option>
+      </select>
+      <div *ngIf="empleadoForm.get('rol')?.invalid && empleadoForm.get('rol')?.touched">
+        Rol es requerido.
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+      <button type="button" (click)="cancel()">Cancelar</button>
+    </div>
+  </form>
+</section>

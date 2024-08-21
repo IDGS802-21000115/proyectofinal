@@ -1,0 +1,83 @@
+<app-navbar1></app-navbar1>
+<!-- compras.component.html -->
+<div>
+    <h2>Compras con Estatus 1</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Compra</th>
+          <th>Proveedor</th>
+          <th>Empleado</th>
+          <th>Fecha</th>
+          <th>Detalles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compra of compras">
+          <td>{{ compra.idCompra }}</td>
+          <td>{{ getProveedorNombre(compra.idProveedor) }}</td>
+          <td>{{ getEmpleadoNombre(compra.idEmpleado) }}</td>
+          <td>{{ compra.fecha | date }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let detalle of compra.detalleCompras">
+                <!-- Materia Prima: {{ getMateriaPrimaNombre(detalle.idMateriaPrima) }}, -->
+                Cantidad: {{ detalle.cantidad }},
+                Subtotal: {{ detalle.subtotal }}
+              </li>              
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+            
+    </table>
+  </div>
+  
+  <div>
+    <h2>Agregar Compra</h2>
+    <form [formGroup]="compraForm" (ngSubmit)="onSubmit()">
+        <!-- Proveedor -->
+        <label for="idProveedor">Proveedor</label>
+        <select id="idProveedor" formControlName="idProveedor">
+          <option [value]="null">Seleccione un proveedor</option>
+          <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">
+            {{ proveedor.nombreProveedor }}
+          </option>
+        </select>
+      
+        <!-- Empleado -->
+        <label for="idEmpleado">Empleado</label>
+        <select id="idEmpleado" formControlName="idEmpleado">
+          <option [value]="null">Seleccione un empleado</option>
+          <option *ngFor="let empleado of empleados" [value]="empleado.idEmpleado">
+            {{ empleado.nombreUsuario }} <!-- Ajusta el campo a mostrar según el nombre del empleado -->
+          </option>
+        </select>
+      
+        <!-- Fecha -->
+        <label for="fecha">Fecha</label>
+        <input id="fecha" type="date" formControlName="fecha">
+      
+        <!-- Detalles de Compra -->
+        <div formArrayName="detalles">
+            <div *ngFor="let detalles of detalleCompras.controls; let i = index" [formGroupName]="i">
+              <label for="materiaPrima">Materia Prima</label>
+              <select id="materiaPrima" formControlName="idMateriaPrima">
+                <option [value]="null">Seleccione materia prima</option>
+                <option *ngFor="let materia of materiaPrima" [value]="materia.idMateriaPrima">
+                  {{ materia.nombre }}
+                </option>
+              </select>
+              
+              <label for="cantidad">Cantidad:</label>
+              <input formControlName="cantidad" placeholder="Cantidad">
+              <label for="subtotal">Subtotal:</label>
+              <input formControlName="subtotal" placeholder="Subtotal">
+              <button type="button" (click)="removeDetalle(i)">Eliminar Detalle</button>
+            </div>
+          </div>                 
+        <button type="button" (click)="addDetalle()">Agregar Detalle</button>
+        <button type="submit">Agregar Compra</button>
+      </form>      
+  </div>
+  

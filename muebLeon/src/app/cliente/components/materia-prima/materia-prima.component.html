@@ -1,0 +1,57 @@
+<app-navbar1></app-navbar1>
+<body>
+  <section id="materiasPrimas-list">
+      <h1>Lista de Materia Prima</h1>
+      <table>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let materiaPrima of materiasPrimas">
+                  <td>{{ materiaPrima.idMateriaPrima }}</td>
+                  <td>{{ materiaPrima.nombre }}</td>
+                  <td>{{ materiaPrima.cantidad }}</td>
+                  <td>
+                      <button class="edit-btn" (click)="editMateriaPrima(materiaPrima)">Editar</button>
+                      <button class="delete-btn" (click)="deleteMateriaPrima(materiaPrima.idMateriaPrima)">Eliminar</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <button class="add-btn" (click)="openCreateForm()">Agregar Materia Prima</button>
+  </section>
+
+  <section id="materiaPrimaForm" *ngIf="isFormVisible">
+      <h1>{{ isEditing ? 'Editar Materia' : 'Agregar Materia' }}</h1>
+      <form [formGroup]="materiaPrimaForm" (ngSubmit)="onSubmit()">
+          <label for="nombre">Nombre:</label>
+          <input id="nombre" formControlName="nombre" type="text" required>
+          <div class="error-message" *ngIf="materiaPrimaForm.get('nombre')?.invalid && materiaPrimaForm.get('nombre')?.touched">
+              Nombre es requerido.
+          </div>
+
+          <label for="cantidad">Cantidad:</label>
+          <input id="cantidad" formControlName="cantidad" type="text" required>
+          <div class="error-message" *ngIf="materiaPrimaForm.get('cantidad')?.invalid && materiaPrimaForm.get('cantidad')?.touched">
+              Cantidad es requerido.
+          </div>
+
+          <label for="estatus">Estatus:</label>
+          <select id="estatus" formControlName="estatus" required>
+              <option [value]="0">Inactivo</option>
+              <option [value]="1">Activo</option>
+          </select>
+          <div class="error-message" *ngIf="materiaPrimaForm.get('estatus')?.invalid && materiaPrimaForm.get('estatus')?.touched">
+              Estatus es requerido.
+          </div>
+
+          <button type="submit">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+          <button type="button" class="cancel-btn" (click)="cancel()">Cancelar</button>
+      </form>
+  </section>
+</body>

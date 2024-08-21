@@ -1,0 +1,44 @@
+<app-navbar3></app-navbar3>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado del Pedido</title>
+    <link rel="stylesheet" href="../../components/pedido/pedido.component.css">
+</head>
+<body>
+    <div class="container">
+        <div class="order-status" *ngIf="pedidos.length > 0">
+            <h1>Estado de los Pedidos</h1>
+            <div *ngFor="let pedido of pedidos" class="order-details">
+                <h2>Pedido #{{pedido.idPedido}}</h2>
+                <p>Cliente: {{pedido.idCliente}}</p>    
+                <p>Fecha: {{pedido.fecha | date:'dd/MM/yyyy'}}</p>
+
+                <div class="timeline">
+                    <div class="timeline-step" [ngClass]="{'completed': pedido.estatus === 'Pendiente', 'active': pedido.estatus === 'Pendiente'}">
+                        <div class="step-icon">{{ pedido.estatus === 'Pendiente' ? '✔' : '✘'}}</div>
+                        <div class="step-text">Pedido recibido</div>
+                    </div>
+                    <div class="timeline-step" [ngClass]="{'completed': pedido.estatus === 'Asignado', 'active': pedido.estatus === 'Asignado'}">
+                        <div class="step-icon">{{ pedido.estatus === 'Asignado' ? '✔' : '✘' }}</div>
+                        <div class="step-text">Pedido asignado</div>
+                    </div>
+                    <div class="timeline-step" [ngClass]="{'completed': pedido.estatus === 'Procesado', 'active': pedido.estatus === 'Procesado'}">
+                        <div class="step-icon">{{ pedido.estatus === 'Procesado' ? '✔' : '✘' }}</div>
+                        <div class="step-text">Envío en proceso</div>
+                    </div>
+                    <div class="timeline-step" [ngClass]="{'completed': pedido.estatus === 'Entregado', 'active': pedido.estatus === 'Entregado'}">
+                        <div class="step-icon">{{ pedido.estatus === 'Entregado' ? '✔' : '✘' }}</div>
+                        <div class="step-text">Entregado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="pedidos.length === 0" class="no-orders">
+            <p>No hay pedidos para mostrar.</p>
+        </div>
+    </div>
+</body>
+</html>

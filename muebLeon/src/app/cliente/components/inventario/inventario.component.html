@@ -1,0 +1,48 @@
+<app-navbar1></app-navbar1>
+<div class="container">
+  <h1>Inventario de Productos</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.idProducto }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.categoria }}</td>
+          <td>{{ producto.precio | currency }}</td>
+          <td>{{ producto.cantidad }}</td>
+          <td>
+            <button (click)="openCreateForm(producto)">Producir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<section id="productoForm" *ngIf="isFormVisible" class="card">
+  <h1>{{ currentProducto ? 'Producir' : 'Agregar producto' }}</h1>
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="cantidad">Cantidad:</label>
+      <input id="cantidad" formControlName="cantidad" type="number" required>
+      <div *ngIf="productoForm.get('cantidad')?.invalid && productoForm.get('cantidad')?.touched">
+        Cantidad es requerida y debe ser mayor que 0.
+      </div>
+    </div>
+    <div class="form-buttons">
+      <button type="submit" [disabled]="productoForm.invalid">{{ currentProducto ? 'Producir' : 'Crear' }}</button>
+    </div>
+  </form>
+</section>

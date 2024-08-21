@@ -1,0 +1,149 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F9FBF0; /* Fondo claro original */
+    color: #336572; /* Texto principal original */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #9B673A; /* Color de encabezados original */
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #A0BCBB; /* Fondo de cada pedido original */
+    padding: 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    background-color: #336572; /* Color del botón original */
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #9B673A; /* Color del botón al pasar el mouse original */
+    transform: scale(1.05);
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #A0BCBB; /* Borde sutil original */
+    border-radius: 5px;
+    background-color: #FFFFFF; /* Fondo blanco */
+    color: #336572; /* Color del texto original */
+    font-size: 15px;
+    margin-top: 12px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #336572; /* Color del borde al enfocar original */
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+.card {
+    background-color: #FFFFFF; /* Fondo blanco para la card */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.card h2 {
+    color: #9B673A; /* Mantener el color de encabezados */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 10px 0;
+    color: #336572; /* Color del texto principal */
+}
+
+.detalle-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #F9FBF0; /* Fondo suave para detalles */
+}
+
+.empleado-assign {
+    margin-top: 20px;
+}
+
+.empleado-assign label {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.empleado-assign select {
+    width: auto;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #A0BCBB; /* Mantener el borde sutil */
+    border-radius: 4px;
+    background-color: #FFFFFF; /* Fondo blanco */
+    color: #336572; /* Color del texto */
+    font-size: 14px;
+}
+
+.empleado-assign button {
+    background-color: #336572; /* Mantener el color del botón */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.empleado-assign button:disabled {
+    background-color: #A0BCBB; /* Color atenuado si está deshabilitado */
+    cursor: not-allowed;
+}
+

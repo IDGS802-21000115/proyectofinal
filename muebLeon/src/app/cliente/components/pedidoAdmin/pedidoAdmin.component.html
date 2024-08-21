@@ -1,0 +1,46 @@
+<app-navbar1></app-navbar1>
+<div>
+  <h1>Pedidos</h1>
+  <ul>
+    <li *ngFor="let pedido of pedidos">
+      Fceha: {{ pedido.fecha }} - Estatus: {{ pedido.estatus }}
+      <button (click)="selectPedido(pedido)">Seleccionar</button>
+    </li>
+  </ul>
+
+  <div *ngIf="selectedPedido" class="card">
+    <h2>Detalles del Pedido</h2>
+   
+    <p><strong>Fecha:</strong> {{ selectedPedido.fecha | date:'shortDate' }}</p>
+    <p><strong>Total:</strong> {{ selectedPedido.total | currency }}</p>
+    <p><strong>Estatus:</strong> {{ selectedPedido.estatus }}</p>
+
+    <div *ngIf="selectedPedido.detalles && selectedPedido.detalles.length > 0">
+      <h3>Detalles de los Productos</h3>
+      <ul>
+        <li *ngFor="let detalle of selectedPedido.detalles" class="detalle-item">
+          
+          <p><strong>Nombre Producto:</strong>  {{ getProductoNombre(detalle.idProducto) }}</p>
+          <p><strong>Cantidad:</strong> {{ detalle.cantidad }}</p>
+          <p><strong>Subtotal:</strong> {{ detalle.subtotal | currency }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!selectedPedido.detalles || selectedPedido.detalles.length === 0">
+      <p>No hay detalles disponibles para este pedido.</p>
+    </div>
+
+    <div class="empleado-assign">
+      <label for="empleadoSelect"><strong>Asignar Empleado:</strong></label>
+      <select id="empleadoSelect" [(ngModel)]="selectedEmpleadoId">
+        <option [ngValue]="null" disabled>Selecciona un empleado</option>
+        <option *ngFor="let empleado of empleados" [value]="empleado.idEmpleado">
+          {{ empleado.nombre }}
+        </option>
+      </select>
+      <button (click)="onAssignEmployee(selectedPedido.idPedido ?? 0)" [disabled]="!selectedEmpleadoId">
+        Asignar Empleado
+      </button>
+    </div>
+  </div>
+</div>

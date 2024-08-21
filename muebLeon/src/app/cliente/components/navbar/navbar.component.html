@@ -1,0 +1,40 @@
+<header>
+  <div class="container-hero">
+    <div class="container hero">
+      <div class="customer-support">
+        <i class="fa-solid fa-headset" style="color: #A0BCBB;"></i>
+        <div class="content-customer-support">
+          <span class="text">Soporte al cliente</span>
+          <span class="number">123-456-7890</span>
+        </div>
+      </div>
+
+      <div class="container-logo">
+        <i class="fa-solid fa-couch" style="color: #17292d;"></i>
+        <h1 class="logo"><a href="/">MuebLeón</a></h1>
+      </div>
+
+      <div> 
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-navbar">
+    <nav class="navbar container">
+      <i class="fa-solid fa-bars"></i>
+      <ul class="menu">
+        <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        
+        <li><a [routerLink]="['/materiaPrima']"><i class="fa-solid fa-cubes"></i> Materia Prima</a></li>
+        <li><a [routerLink]="['/proveedores']"><i class="fa-solid fa-truck"></i> Proveedores</a></li>
+        <li><a [routerLink]="['/inventario']"><i class="fa-solid fa-warehouse"></i> Inventario</a></li>
+        <li><a [routerLink]="['/pedidoAdmin']"><i class="fa-solid fa-tasks"></i> Asignación de pedidos</a></li>
+        <li><a [routerLink]="['/empleado']"><i class="fa-solid fa-users"></i> Empleados</a></li>
+        <li><a [routerLink]="['/pedidoEmpleado']"><i class="fa-solid fa-clipboard-list"></i> Pedidos Asignados</a></li>
+      </ul>
+      
+    </nav>
+  </div>
+</header>

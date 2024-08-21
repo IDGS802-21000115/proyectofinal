@@ -1,0 +1,67 @@
+<app-navbar1></app-navbar1>
+<section id="proveedores-list">
+  <h1>Lista de Proveedores</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Teléfono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proveedor of proveedores">
+          <td>{{ proveedor.idProveedor }}</td>
+          <td>{{ proveedor.nombreProveedor }}</td>
+          <td>{{ proveedor.descripcion }}</td>
+          <td>{{ proveedor.telefono }}</td>
+          <td>
+            <button (click)="editProveedor(proveedor)">Editar</button>
+            <button (click)="deleteProveedor(proveedor.idProveedor)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button class="add-button" (click)="openCreateForm()">Agregar Proveedor</button>
+</section>
+
+<section id="proveedorForm" *ngIf="isFormVisible" class="card">
+  <h1>{{ isEditing ? 'Editar Proveedor' : 'Agregar Proveedor' }}</h1>
+  <form [formGroup]="proveedorForm" (ngSubmit)="onSubmit()">
+    <label for="nombreProveedor">Nombre:</label>
+    <input id="nombreProveedor" formControlName="nombreProveedor" type="text" required>
+    <div *ngIf="proveedorForm.get('nombreProveedor')?.invalid && proveedorForm.get('nombreProveedor')?.touched">
+      Nombre es requerido.
+    </div>
+  
+    <label for="descripcion">Descripción:</label>
+    <input id="descripcion" formControlName="descripcion" type="text" required>
+    <div *ngIf="proveedorForm.get('descripcion')?.invalid && proveedorForm.get('descripcion')?.touched">
+      Descripción es requerida.
+    </div>
+  
+    <label for="telefono">Teléfono:</label>
+    <input id="telefono" formControlName="telefono" type="text" required>
+    <div *ngIf="proveedorForm.get('telefono')?.invalid && proveedorForm.get('telefono')?.touched">
+      Teléfono es requerido.
+    </div>
+  
+    <label for="estatus">Estatus:</label>
+    <select id="estatus" formControlName="estatus" required>
+      <option [value]="1">Activo</option>
+      <option [value]="0">Inactivo</option>
+    </select>
+    <div *ngIf="proveedorForm.get('estatus')?.invalid && proveedorForm.get('estatus')?.touched">
+      Estatus es requerido.
+    </div>
+
+    <div class="form-buttons">
+      <button type="submit">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+      <button type="button" (click)="cancel()">Cancelar</button>
+    </div>
+  </form>    
+</section>

@@ -1,0 +1,56 @@
+<section id="registro">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Registro</h1>
+    <div class="inputbox">
+      <input type="text" id="nombre" formControlName="nombre" required>
+      <label for="nombre">Nombre</label>
+      <div *ngIf="form.get('nombre')?.invalid && (form.get('nombre')?.dirty || form.get('nombre')?.touched)">
+        <small *ngIf="form.get('nombre')?.errors?.['required']">El nombre es requerido.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="text" id="direccion" formControlName="direccion" required>
+      <label for="direccion">Dirección</label>
+      <div *ngIf="form.get('direccion')?.invalid && (form.get('direccion')?.dirty || form.get('direccion')?.touched)">
+        <small *ngIf="form.get('direccion')?.errors?.['required']">La Dirección es requerida.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="text" id="tarjeta" formControlName="tarjeta" required>
+      <label for="tarjeta">Número de tarjeta</label>
+      <div *ngIf="form.get('tarjeta')?.invalid && (form.get('tarjeta')?.dirty || form.get('tarjeta')?.touched)">
+        <small *ngIf="form.get('tarjeta')?.errors?.['required']">El número de tarjeta es requerido.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="text" id="fechaVencimiento" formControlName="fechaVencimiento" required>
+      <label for="fechaVencimiento">Fecha de vencimiento</label>
+      <div *ngIf="form.get('fechaVencimiento')?.invalid && (form.get('fechaVencimiento')?.dirty || form.get('fechaVencimiento')?.touched)">
+        <small *ngIf="form.get('fechaVencimiento')?.errors?.['required']">La fecha de vencimiento es requerida.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="text" id="codigo" formControlName="codigo" required>
+      <label for="codigo">Código</label>
+      <div *ngIf="form.get('codigo')?.invalid && (form.get('codigo')?.dirty || form.get('codigo')?.touched)">
+        <small *ngIf="form.get('codigo')?.errors?.['required']">El código es requerido.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="text" id="usuario" formControlName="usuario" required>
+      <label for="usuario">Usuario</label>
+      <div *ngIf="form.get('usuario')?.invalid && (form.get('usuario')?.dirty || form.get('usuario')?.touched)">
+        <small *ngIf="form.get('usuario')?.errors?.['required']">El usuario es requerido.</small>
+      </div>
+    </div>
+    <div class="inputbox">
+      <input type="password" id="contrasenia" formControlName="contrasenia" required>
+      <label for="contrasenia">Contraseña</label>
+      <div *ngIf="form.get('contrasenia')?.invalid && (form.get('contrasenia')?.dirty || form.get('contrasenia')?.touched)">
+        <small *ngIf="form.get('contrasenia')?.errors?.['required']">La contraseña es requerida.</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="form.invalid">Registrarse</button>
+    <p>¿Ya tienes una cuenta? <a routerLink="/login" class="text-purple-700">Inicia Sesión</a></p>
+  </form>
+</section>

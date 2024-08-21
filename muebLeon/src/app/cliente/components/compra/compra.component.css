@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F9FBF0;
+    color: #336572;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #9B673A;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #A0BCBB;
+}
+
+th {
+    background-color: #336572;
+    color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+    background-color: #F9FBF0;
+}
+
+td ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+td li {
+    margin-bottom: 5px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card h2 {
+    color: #9B673A;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #336572;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #A0BCBB;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #336572;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+input:focus, select:focus {
+    border-color: #336572;
+    outline: none;
+}
+
+.details-container {
+    margin-bottom: 20px;
+}
+
+.detail-group {
+    background-color: #F9FBF0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #A0BCBB;
+}
+
+button {
+    background-color: #336572;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #9B673A;
+    transform: scale(1.05);
+}
+
+button[type="button"] {
+    background-color: #FF6F61;
+    margin-right: 10px;
+}
+
+button[type="button"]:hover {
+    background-color: #E35D5B;
+}

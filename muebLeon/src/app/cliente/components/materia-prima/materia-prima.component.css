@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#materiasPrimas-list, #materiaPrimaForm {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+h1 {
+    color: #336572; /* Título principal */
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #336572; /* Fondo del encabezado de tabla */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #F9FBF0; /* Fondo de filas pares */
+}
+
+tr:hover {
+    background-color: #E3BD8E; /* Fondo al pasar el ratón por encima */
+}
+
+.edit-btn, .delete-btn, .add-btn, .cancel-btn {
+    background-color: #336572; /* Fondo de botones */
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: #A0BCBB; /* Fondo botón editar */
+}
+
+.delete-btn {
+    background-color: #9B673A; /* Fondo botón eliminar */
+}
+
+.add-btn {
+    width: 100%;
+    background-color: #336572; /* Fondo botón agregar */
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.cancel-btn {
+    background-color: #E3BD8E; /* Fondo botón cancelar */
+}
+
+.error-message {
+    color: #9B673A; /* Mensaje de error */
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    background-color: #336572; /* Fondo botón submit */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover, .edit-btn:hover, .delete-btn:hover, .add-btn:hover, .cancel-btn:hover {
+    background-color: #0056b3;
+}

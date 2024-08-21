@@ -1,0 +1,31 @@
+<section id="login">
+  <div class="screen-1">
+    <div class="logo">
+      <img src="https://th.bing.com/th/id/OIP.weTa660orK7_ijk7eXEB1AHaGs?rs=1&pid=ImgDetMain" class="circle-image" />
+      
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="email">
+        <label for="usuario">Email Address</label>
+        <div class="sec-2">
+         
+          <input type="text" id="usuario" formControlName="usuario" placeholder="Username@gmail.com" required>
+        </div>
+      </div>
+      <div class="password">
+        <label for="contrasenia">Password</label>
+        <div class="sec-2">
+       
+          <input type="password" id="contrasenia" formControlName="contrasenia" placeholder="············" required>
+          
+        </div>
+      </div>
+      <button class="login" type="submit">Login</button>
+      <div class="footer">
+        <span><a routerLink="/Registro">Sign up</a></span>
+       
+      </div>
+    </form>
+  </div>
+</section>

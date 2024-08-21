@@ -1,0 +1,41 @@
+<app-navbar1></app-navbar1>
+<div>
+  <h1>Pedidos</h1>
+  <ul>
+      <li *ngFor="let pedido of pedidos" class="pedido-item">
+          <span>
+             Fecha {{ pedido.fecha }} - Estatus: {{ pedido.estatus }}
+          </span>
+          <div class="pedido-buttons">
+              <button (click)="onProcessOrder(pedido.idPedido ?? 0)">Procesar Pedido</button>
+              <button (click)="onSelectPedido(pedido)">Ver Detalles</button>
+          </div>
+      </li>
+  </ul>
+
+  <div *ngIf="selectedPedido" class="card">
+      <h2>Detalles del Pedido</h2>
+      
+      <p><strong>Fecha:</strong> {{ selectedPedido.fecha | date:'shortDate' }}</p>
+      <p><strong>Total:</strong> {{ selectedPedido.total | currency }}</p>
+      <p><strong>Estatus:</strong> {{ selectedPedido.estatus }}</p>
+      <p><strong>ID Empleado:</strong> {{ selectedPedido.idEmpleado }}</p> <!-- Mostrar ID del empleado -->
+
+      <div *ngIf="selectedPedido.detalles && selectedPedido.detalles.length > 0">
+          <h3>Detalles del Pedido</h3>
+          <ul>
+              <li *ngFor="let detalle of selectedPedido.detalles" class="detalle-item">
+                  
+                  <p><strong> Nombre Producto</strong> : {{ getProductoNombre(detalle.idProducto) }}</p>
+                
+                  <p><strong>Cantidad:</strong> {{ detalle.cantidad }}</p>
+                  <p><strong>Subtotal:</strong> {{ detalle.subtotal | currency }}</p>
+              </li>
+          </ul>
+      </div>
+
+      <div *ngIf="!selectedPedido.detalles || selectedPedido.detalles.length === 0">
+          <p>No hay detalles disponibles para este pedido.</p>
+      </div>
+  </div>
+</div>

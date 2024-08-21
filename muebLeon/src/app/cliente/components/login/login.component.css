@@ -1,0 +1,102 @@
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E3BD8B; /* Color de fondo actualizado */
+  }
+  
+.screen-1 {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+.logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+  }
+  
+.circle-image {
+    width: 150px; /* Ajusta el ancho según lo que necesites */
+    height: 150px; /* Ajusta la altura según lo que necesites */
+    border-radius: 100%; /* Esto lo hará circular */
+    object-fit: cover; /* Para asegurarte de que la imagen se ajuste bien dentro del contenedor circular */
+    margin-bottom: 20px; /* Espaciado debajo de la imagen */
+  }
+  
+.email, .password {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+.email label, .password label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+.sec-2 {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    border-radius: 30px;
+    padding: 10px 20px;
+  }
+  
+.sec-2 ion-icon {
+    font-size: 18px;
+    color: #999;
+    margin-right: 10px;
+  }
+  
+.sec-2 input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+.sec-2 input::placeholder {
+    color: #999;
+  }
+  
+.show-hide {
+    cursor: pointer;
+    font-size: 18px;
+    color: #999;
+  }
+  
+button.login {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #336572;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+button.login:hover {
+    background: #2d3765;
+  }
+  
+.footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.footer span a {
+    color: #3d4785;
+    text-decoration: none;
+  }
+  
+.footer span a:hover {
+    text-decoration: underline;
+  }

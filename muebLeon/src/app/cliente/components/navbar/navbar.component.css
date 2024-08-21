@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*background-image: url('assets/img/MuebLeon.jpeg');*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 800px 600px;
+    background-color: #A0BCBB;
+    color: #A0BCBB;
+}
+.list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: fixed;
+    top: 5%;
+    left: 20%;
+    width: 100%;
+}
+
+.link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #4e3300;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.link::before,
+.link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #4e3300;
+    bottom: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.link::before {
+    bottom: 20px;
+}
+
+.link::after {
+    bottom: 0;
+}
+
+.link:hover::before,
+.link:hover::after {
+    transform: scaleX(1);
+}
